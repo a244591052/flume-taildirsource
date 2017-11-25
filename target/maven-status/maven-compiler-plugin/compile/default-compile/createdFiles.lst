@@ -1,0 +1,15 @@
+com\djt\flume\ReliableTaildirEventReader$Builder.class
+com\djt\flume\TaildirSource.class
+com\djt\flume\TaildirMatcher$2.class
+com\djt\flume\TaildirSourceConfigurationConstants.class
+com\djt\flume\TailFile.class
+com\djt\flume\TaildirSource$PositionWriterRunnable.class
+com\djt\flume\TaildirMatcher$1.class
+com\djt\flume\TailFile$LineResult.class
+com\djt\flume\TaildirSource$1.class
+com\djt\flume\TaildirSource$idleFileCheckerRunnable.class
+com\djt\flume\ReliableTaildirEventReader$1.class
+com\djt\flume\TaildirMatcher.class
+com\djt\flume\App.class
+com\djt\flume\PollableSourceConstants.class
+com\djt\flume\ReliableTaildirEventReader.class
