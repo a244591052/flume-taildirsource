@@ -1,15 +1,15 @@
-#Flume1.7.0 taildirSource bug 修复——文件重命名后重复采集数据
+# Flume1.7.0 taildirSource bug 修复——文件重命名后重复采集数据
 相对于flume 1.6.0 版本，flume 1.7.0 推出了 taildirSource 组件，通过tail 监控正则表达式
 匹配目录下的所有文件，实现断点续传。
 
-##发现taildirSource重复采集数据问题
+## 发现taildirSource重复采集数据问题
 flume 1.7.0 官方的 taildirSource 对于log4j 日志的监控会有bug。
 因为log4j 日志会自动切分，可以按天或者按小时进行切分，log4j 切分日志其实就是新建
 一个文件，然后修改原来的日志文件名称。但是 taildirSource 组件是不支持修改文件名称
 的，如果文件被修改名称了，那么taildirSource 会认为是一个新的文件，就会重新读取该文
 件中的数据，这就导致了日志文件重读，造成数据重复采集问题。
 
-##修改taildirSource解决问题
+## 修改taildirSource解决问题
 通过阅读源码发现里面存在bug，只需要修改几处源码就可以解决这个bug问题。
 首先从flume 官方下载flume1.7 源码，找到这个文件
 `apache-flume-1.7.0-src\flume-ng-sources\flume-taildir-source\src\main\java\org\apache\flume\source\taildir\ReliableTaildirEventReader.java`
@@ -102,7 +102,7 @@ flume 1.7.0 官方的 taildirSource 对于log4j 日志的监控会有bug。
     }
 ```
 
-##Flume项目打包编译
+## Flume项目打包编译
 1. 通过mvn package 对上述两个模块进行源码编译生成flume-taildirsource.jar
 2. 将flume-taildirsource.jar 上传到flume lib 目录下即可生效
 
